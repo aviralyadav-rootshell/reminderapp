@@ -1,0 +1,62 @@
+
+    <html>
+    <head>
+
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+
+
+
+    <h3>Reminders ::</h3>
+
+    <table>
+      <tr>
+        <th>Reminder Name</th>
+        <th>Subject</th>
+        <th>Discription</th>
+        <th>Email Address</th>
+        <th>Contact</th>
+        <th>SMS</th>
+        <th>Status</th>
+        <th>Reccureence Frequency</th>
+      </tr>
+      {% for post in posts %}
+      <tr>
+        <td>{{post.subject}}</td>
+        <td>{{post.subject}}</td>
+        <td>{{post.discript}}</td>
+        <td>{{post.email}}</td>
+        <td>{{post.contact}}</td>
+        <td>{{post.sms}}</td>
+        <td>{{posts.status}}</td>
+        <td>{{post.rmn}}</td>
+      </tr>
+          {% endfor %}
+    </table>
+
+    </body>
+    </html>
+
+<br/><br/><br/>
+    <p align="left">
+      <a href="{{url_for('home')}}"><button> <<==Back</button>
+      <p align="right">
+      <a href="{{url_for('logout')}}"><button>Logout X</button></a>
+    </p>

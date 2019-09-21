@@ -1,0 +1,36 @@
+<style>
+.center {
+  padding: 100px 0;
+  text-align: center;
+}
+</style>
+
+<div class="center">
+
+<h3>Welcome To The Acxiom - Reminder ::{{current_user.username}}</h3>
+<p>Today Is : {{time.strftime("%A")}},{{time.strftime("%d")}}th Of {{time.strftime("%B")}}
+
+<ul>
+<li>
+  <a href="{{url_for('rem')}}">Set Reminder</a>
+</li><br/>
+<li>
+  <a href="{{url_for('modify')}}">Modify Reminder</a></li><br/>
+<li>
+  <a href="{{url_for('disable')}}">Disable Reminder</a></li><br/>
+<li>
+  <a href="{{url_for('delete')}}">Delete Reminder</a></li><br/>
+<li>
+  <a href="{{url_for('enable')}}">Enable Reminder</a></li><br/>
+<li>
+  <a href="{{url_for('show')}}">View Your Reminder</a></li><br/>
+</div>
+
+<p align="left">
+  <a href="{{url_for('home')}}"><button> <<==Back</button>
+  <p align="right">
+  <a href="{{url_for('logout')}}"><button>Logout X</button></a>
+</p>
+<p align="center">
+<a href="{{url_for('Mail')}}"><button>Send Reminders</button></a>
+</p>

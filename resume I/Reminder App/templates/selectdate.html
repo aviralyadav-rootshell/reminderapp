@@ -1,0 +1,123 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script>
+	$(function() {
+		$( ".dtpick" ).datepicker();
+	});
+	</script>
+
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+</head>
+<body>
+<main role="main" class="container">
+     <div class="row">
+       <div class="col-md-8">
+
+   <div class="content-section">
+       <form method="POST" action="">
+           {{ form.hidden_tag() }}
+           <fieldset class="form-group">
+               <legend class="border-bottom mb-4">Select The Reminders</legend>
+
+<div class="form-group">
+    {{ form.sdate.label(class="form-control-label") }}
+    {{ form.sdate(class="dtpick") }}
+</div>
+<div class="form-group">
+    {{ form.ldate.label(class="form-control-label") }}
+    {{ form.ldate(class="dtpick") }}
+</div>
+
+<div class="form-group">
+    {{ form.subject.label(class="form-control-label") }}
+   {{ form.subject(class="form-control form-control-lg") }}
+</div>
+</fieldset>
+<div class="form-group">
+    {{ form.submit(class="btn btn-outline-info") }}
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+
+
+
+
+
+
+
+
+<h3>Reminders ::</h3>
+
+<table>
+  <tr>
+    <th>Reminder Name</th>
+    <th>Subject</th>
+    <th>Discription</th>
+    <th>Email Address</th>
+    <th>Contact</th>
+    <th>SMS</th>
+    <th>Status</th>
+    <th>Reccureence Frequency</th>
+    <th>Check up bo</th>
+  </tr>
+  {% for post in posts %}
+  <tr>
+    <td>{{post.name}}</td>
+    <td>{{post.subject}}</td>
+    <td>{{post.discript}}</td>
+    <td>{{post.email}}</td>
+    <td>{{post.contact}}</td>
+    <td>{{post.sms}}</td>
+    <td>{{post.status}}</td>
+    <td>{{post.rmn}}</td>
+  </tr>
+      {% endfor %}
+</table>
+
+</body>
+
+
+<br/><br/><br/>
+<p align="left">
+  <a href="{{url_for('home')}}"><button> <<==Back</button>
+</p>
+
+<p align="center">
+<a href="{{url_for('modify')}}"><button>Modify</button></a>
+</p>
+
+<p align="center">
+<a href="{{url_for('delete')}}"><button>Delete</button></a>
+</p>
+
+<p align="center">
+<a href="{{url_for('disable')}}"><button>disable</button></a>
+</p>
+
+  <p align="right">
+  <a href="{{url_for('logout')}}"><button>Logout X</button></a>
+</p>

@@ -1,0 +1,88 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script>
+	$(function() {
+		$( ".dtpick" ).datepicker();
+	});
+	</script>
+
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  </style>
+</head>
+<body>
+  <main role="main" class="container">
+       <div class="row">
+         <div class="col-md-8">
+
+     <div class="content-section">
+         <form method="POST" action="">
+             {{ form.hidden_tag() }}
+             <fieldset class="form-group">
+                 <legend class="border-bottom mb-4">Select The Reminders</legend>
+
+  <div class="form-group">
+      {{ form.date.label(class="form-control-label") }}
+      {{ form.date(class="dtpick") }}
+</div>
+<div class="form-group">
+    {{ form.submit(class="btn btn-outline-info") }}
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<main role="main" class="container">
+		 <div class="row">
+			 <div class="col-md-8">
+
+	 <div class="content-section">
+			 <form method="POST" action="">
+					 {{ form.hidden_tag() }}
+					 <fieldset class="form-group">
+							 <legend class="border-bottom mb-4">Found  The Reminders:</legend>
+
+
+							 {% for post in posts %}
+							 <b>*Subject </b> :: {{post.subject}} &nbsp &nbsp &nbsp <b>Reminder </b> :: {{post.name}} <br/>
+							 {% endfor %}
+
+
+<div class="form-group">
+	<a href="{{url_for('modifynow')}}">Modify Now</a>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+
+
+
+<p align="left">
+  <a href="{{url_for('home')}}"><button> <<==Back</button>
+  <p align="right">
+  <a href="{{url_for('logout')}}"><button>Logout X</button></a>
+</p>
