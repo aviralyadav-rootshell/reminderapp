@@ -17,8 +17,8 @@ app.secret_key = 'development key'
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'blackhatal@gmail.com'
-app.config["MAIL_PASSWORD"] = 'LpJt2HK4@&Evgl'
+app.config["MAIL_USERNAME"] = 'acxiom-id@gmail.com'
+app.config["MAIL_PASSWORD"] = 'acxiom-pass'
 #app.config.from_pyfile('config.cfg')
 
 mail = Mail(app)
